@@ -56,14 +56,7 @@ export default function Home() {
             <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="url(#grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             </svg>
             <div className="flex flex-col leading-tight">
-              <span 
-                className="text-[20px] goldman-bold tracking-[0.25em] text-indigo-300 transition-all duration-300"
-                style={{
-                  filter: 'drop-shadow(0 0 8px rgba(99,102,241,0.6)) drop-shadow(0 0 12px rgba(168,85,247,0.4))'
-                }}
-              >
-                Endra's Space
-              </span>
+              <span className="text-[20px] goldman-bold tracking-[0.25em] text-indigo-300">Endra's Space</span>
             </div>
           </div>
 
