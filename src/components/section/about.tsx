@@ -14,15 +14,16 @@ const profileDetails = [
 
 export default function AboutSection() {
     return (
-        <motion.section
-            id="about"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full relative overflow-hidden bg-[#1a0b2e] dark:bg-[#0d1b3e] text-white mt-8 lg:mt-16 border border-indigo-500/20 shadow-2xl"
-            style={{ clipPath: 'polygon(60px 0, calc(100% - 60px) 0, 100% 60px, 100% calc(100% - 60px), calc(100% - 60px) 100%, 60px 100%, 0 calc(100% - 60px), 0 60px)' }}
-        >
+        <div className="relative w-full mt-8 lg:mt-16">
+            <motion.section
+                id="about"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full relative overflow-hidden bg-[#1a0b2e] dark:bg-[#0d1b3e] text-white border border-indigo-500/20 shadow-2xl"
+                style={{ clipPath: 'polygon(60px 0, calc(100% - 60px) 0, 100% 60px, 100% calc(100% - 300px), calc(100% - 90px) calc(100% - 300px), calc(100% - 90px) 100%, 60px 100%, 0 calc(100% - 90px), 0 60px)' }}
+            >
             {/* Grid background */}
             <div
                 className="absolute inset-0 z-0 opacity-20"
@@ -40,7 +41,7 @@ export default function AboutSection() {
             <div className="relative z-10 max-w-[90rem] mx-auto px-6 md:px-12 py-24">
                 {/* Top label */}
                 <div className="mb-10 w-full text-center">
-                    <span className="inline-block text-xl font-extrabold tracking-[0.35em] uppercase text-indigo-300 px-5 py-2">
+                    <span className="inline-block text-2xl font-extrabold press-start-2p-regular tracking-[0.35em] uppercase text-indigo-300 px-5 py-2">
                         About Me
                     </span>
                 </div>
@@ -66,8 +67,8 @@ export default function AboutSection() {
 
                                 {/* Name & role */}
                                 <div className="text-center">
-                                    <p className="text-xl font-extrabold text-white tracking-wide">Endra Daniswara</p>
-                                    <p className="text-sm text-indigo-300 tracking-widest uppercase mt-1">Web Developer</p>
+                                    <p className="text-2xl goldman-bold text-white tracking-wide">Endra Daniswara</p>
+                                    <p className="text-md goldman-regular text-indigo-300 tracking-widest uppercase mt-1">Web Developer</p>
                                 </div>
 
                                 {/* Divider */}
@@ -89,7 +90,7 @@ export default function AboutSection() {
                     </div>
 
                     {/* RIGHT — Heading + bio */}
-                    <div className="flex-1 space-y-6">
+                    <div className="flex-[2] space-y-6">
                         <AboutTitleAnimation />
 
                         <p className="text-justify text-slate-300 text-lg leading-relaxed max-w-xl">
@@ -104,6 +105,26 @@ export default function AboutSection() {
 
             {/* Bottom edge line */}
             <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
-        </motion.section>
+            </motion.section>
+
+            {/* Social Media Sidebar Cutout Area */}
+            <div className="bg-transparent absolute bottom-0 right-0 w-[90px] h-[300px] flex flex-col items-center justify-center gap-7 border-l border-t border-indigo-500/20 z-20">
+               <a href="https://instagram.com" target="_blank" rel="noreferrer" 
+                  className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform bg-[#1a0b2e] dark:bg-[#0d1b3e]"
+                  style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)' }}>
+                   <img src="/instagram.svg" alt="Instagram" className="w-6 h-6 invert" />
+               </a>
+               <a href="https://linkedin.com" target="_blank" rel="noreferrer" 
+                  className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform bg-[#1a0b2e] dark:bg-[#0d1b3e]"
+                  style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)' }}>
+                   <img src="/linkedin.svg" alt="LinkedIn" className="w-6 h-6 invert" />
+               </a>
+               <a href="https://tiktok.com" target="_blank" rel="noreferrer" 
+                  className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform bg-[#1a0b2e] dark:bg-[#0d1b3e]"
+                  style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)' }}>
+                   <img src="/tiktok.svg" alt="TikTok" className="w-6 h-6 invert" />
+               </a>
+            </div>
+        </div>
     );
 }

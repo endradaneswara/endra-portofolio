@@ -93,7 +93,7 @@ export const AboutTitleAnimation = () => {
       observer.disconnect();
       stopAll();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ── word component ─────────────────────────────────────────────────────────
@@ -114,29 +114,29 @@ export const AboutTitleAnimation = () => {
     </span>
   );
 
-  const blue   = 'text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400';
-  const purple = 'text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400';
+  const blue = 'text-transparent bg-clip-text russo-one-regular bg-gradient-to-r from-indigo-400 to-blue-400';
+  const purple = 'text-transparent bg-clip-text rubik-mono-one-regular bg-gradient-to-r from-purple-400 to-indigo-400';
 
   // ── render ─────────────────────────────────────────────────────────────────
 
   return (
     <h2
       ref={containerRef}
-      className="text-2xl sm:text-4xl lg:text-5xl font-extrabold leading-tight"
+      className="text-xl sm:text-3xl lg:text-4xl font-extrabold leading-[1.2]"
     >
       {/* Line 1 — "Fan of good music" */}
       <Word text="Fan" />{' '}
       <Word text="of" />{' '}
       <Word text="good" className={blue} />{' '}
-      <Word text="music" className={blue} />
+      <Word text="music" className={blue} />{' '}
 
       <br />
 
       {/* Line 2 — "good vibes and meaningful conversations" */}
-      <Word text="good"          className={purple} />{' '}
-      <Word text="vibes"         className={purple} />{' '}
-      <Word text="and"           />{' '}
-      <Word text="meaningful"    className={blue}   />{' '}
+      <Word text="good" className={purple} />{' '}
+      <Word text="vibes" className={purple} />{' '}
+      <Word text="and" />{' '}
+      <Word text="meaningful" className={blue} />{' '}
       <Word text="conversations" className={purple} />
     </h2>
   );
