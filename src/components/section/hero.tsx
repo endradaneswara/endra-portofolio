@@ -57,10 +57,10 @@ export default function HeroSection() {
           <TechMarquee />
 
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button size="lg" className="bg-transparent border-blue-400 bg-transparent/5 text-white hover:bg-white/10 hover:text-white">
+            <Button size="lg" className="border-purple-400 bg-purple-400/10 text-white silkscreen-bold tracking-[0.1em] hover:scale-110 hover:bg-blue-500/10 hover:text-white transition-all duration-500">
               View My Projects
             </Button>
-            <Button size="lg" variant="outline" className="border-blue-400 bg-transparent/5 text-white hover:bg-white/10 hover:text-white">
+            <Button size="lg" variant="outline" className="border-purple-400 bg-purple-400/10 text-white silkscreen-bold tracking-[0.1em] hover:scale-110 hover:bg-blue-500/10 hover:text-white transition-all duration-500">
               Contact Me
             </Button>
           </div>

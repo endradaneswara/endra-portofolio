@@ -115,7 +115,7 @@ export const AboutTitleAnimation = () => {
   );
 
   const blue = 'text-transparent bg-clip-text russo-one-regular bg-gradient-to-r from-indigo-400 to-blue-400';
-  const purple = 'text-transparent bg-clip-text rubik-mono-one-regular bg-gradient-to-r from-purple-400 to-indigo-400';
+  const purple = 'text-transparent bg-clip-text rubik-mono-one-regular bg-gradient-to-r from-purple-400 to-indigo-400 text-3xl';
 
   // ── render ─────────────────────────────────────────────────────────────────
 

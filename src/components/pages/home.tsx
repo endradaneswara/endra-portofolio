@@ -48,7 +48,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full h-16 flex items-stretch text-white">
         {/* Main Navbar Block with slanted cut on the right */}
         <div
-          className="relative flex items-center bg-[#1a0b2e] dark:bg-[#0d1b3e] pr-8 md:pr-16"
+          className="relative flex items-center bg-[#1a0b2e] dark:bg-[#0d1b3e] pr-8 md:pr-16 border-blue-500"
           style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)' }}
         >
           {/* Logo / Brand Block */}
@@ -56,16 +56,23 @@ export default function Home() {
             <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="url(#grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             </svg>
             <div className="flex flex-col leading-tight">
-              <span className="text-[20px] goldman-bold tracking-[0.25em] text-indigo-300">Endra's Space</span>
+              <span 
+                className="text-[20px] goldman-bold tracking-[0.25em] text-indigo-300 transition-all duration-300"
+                style={{
+                  filter: 'drop-shadow(0 0 8px rgba(99,102,241,0.6)) drop-shadow(0 0 12px rgba(168,85,247,0.4))'
+                }}
+              >
+                Endra's Space
+              </span>
             </div>
           </div>
 
           {/* Vertical Purple Line Separator */}
-          <Separator orientation="vertical" className="h-full " />
+          <Separator orientation="vertical" className="h-full bg-purple-400/30 shadow-[0_0_20px_rgba(168,85,247,0.8)]" />
 
           {/* Navigation Menu */}
           <div className="flex items-center px-4 md:px-8">
-            <NavigationMenu className="hidden md:flex ">
+            <NavigationMenu className="hidden md:flex">
               <NavigationMenuList className="gap-2 text-slate-400">
                 {[
                   { name: 'Home', href: '#hero' },
