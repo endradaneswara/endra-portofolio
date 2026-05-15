@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { motion } from "framer-motion"
+import { AboutTitleAnimation } from "@/components/animation/about-title-animation"
 
 const profileDetails = [
     { label: 'Full Name', value: 'Endra Daniswara' },
@@ -48,7 +49,7 @@ export default function AboutSection() {
                 <div className="flex flex-col lg:flex-row gap-12 lg:items-stretch">
 
                     {/* LEFT — Profile Card full height */}
-                    <div className="lg:w-[520px] flex flex-col">
+                    <div className="lg:w-[450px] flex flex-col">
                         <Card className="flex-1 bg-white/5 border border-white/10 text-white backdrop-blur-sm hover:border-indigo-500/40 hover:scale-105 hover:shadow-[0_0_40px_rgba(99,102,241,0.4)] transition-all duration-500">
                             <CardContent className="pt-8 flex flex-col items-center gap-6 h-full">
 
@@ -89,22 +90,12 @@ export default function AboutSection() {
 
                     {/* RIGHT — Heading + bio */}
                     <div className="flex-1 space-y-6">
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-                            Building{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">
-                                digital
-                            </span>
-                            <br />
-                            experiences that{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
-                                matter.
-                            </span>
-                        </h2>
+                        <AboutTitleAnimation />
 
-                        <p className="text-slate-300 text-lg leading-relaxed max-w-xl">
-                            Hi, I'm <span className="font-bold text-white">Endra Daniswara</span> — a passionate
-                            Web Developer focused on crafting modern, responsive, and scalable web applications.
-                            I love turning ideas into elegant digital solutions using the latest technologies.
+                        <p className="text-justify text-slate-300 text-lg leading-relaxed max-w-xl">
+                            Hi, I'm <span className="font-bold text-white">Endra Daniswara</span> — a Web Developer who enjoys building modern and interactive experiences for the web. 
+                            Outside of coding, I’m someone who loves exploring new ideas, enjoying good music, and finding inspiration in everyday moments. 
+                            Always curious, always learning, and just trying to create things that feel meaningful and fun.
                         </p>
                         {/* Skills tags */}
                     </div>

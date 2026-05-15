@@ -61,7 +61,7 @@ export default function Home() {
           </div>
 
           {/* Vertical Purple Line Separator */}
-          <Separator orientation="vertical" className="h-full" />
+          <Separator orientation="vertical" className="h-full " />
 
           {/* Navigation Menu */}
           <div className="flex items-center px-4 md:px-8">
