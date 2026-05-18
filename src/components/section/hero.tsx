@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button"
-import { ProgrammingAnimation, CatTypingAnimation, CodingSlideAnimation } from "@/components/animation/dotLottie"
+import { ProgrammingAnimation, CatTypingAnimation, CodingSlideAnimation } from "@/components/common/dotLottie"
 import { HeroTitle } from "@/components/animation/text-animation"
-import { TechMarquee } from "@/components/animation/tech-marquee"
+import { TechMarquee } from "@/components/common/tech-marquee"
 import { ScrambleText } from "@/components/animation/scramble-text"
+import { GridBackground } from "@/components/animation/grid-background"
 
 export default function HeroSection() {
   return (
@@ -11,14 +12,8 @@ export default function HeroSection() {
       className="relative min-h-[calc(100vh-4rem-2rem)] mx-2 mt-2 md:mx-4 md:mt-4 lg:mx-6 lg:mt-4 overflow-hidden bg-[#1a0b2e] dark:bg-[#0d1b3e] text-white"
       style={{ clipPath: 'polygon(60px 0, 100% 0, 100% calc(100% - 60px), calc(100% - 60px) 100%, 0 100%, 0 60px)' }}
     >
-      {/* Subtle grid background */}
-      <div
-        className="absolute inset-0 z-0 opacity-20"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
-          backgroundSize: '40px 40px'
-        }}
-      />
+      {/* Interactive Grid Background */}
+      <GridBackground />
 
       {/* Polygon-like slanted background shape */}
       <div className="absolute right-0 top-0 z-0 h-full w-1/2 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl filter" />
@@ -60,7 +55,7 @@ export default function HeroSection() {
             <Button size="lg" className="border-purple-400 bg-purple-400/10 text-white silkscreen-bold tracking-[0.1em] hover:scale-110 hover:bg-blue-500/10 hover:text-white transition-all duration-500">
               View My Projects
             </Button>
-            <Button size="lg" variant="outline" className="border-purple-400 bg-purple-400/10 text-white silkscreen-bold tracking-[0.1em] hover:scale-110 hover:bg-blue-500/10 hover:text-white transition-all duration-500">
+            <Button size="lg" className="border-purple-400 bg-purple-400/10 text-white silkscreen-bold tracking-[0.1em] hover:scale-110 hover:bg-blue-500/10 hover:text-white transition-all duration-500">
               Contact Me
             </Button>
           </div>

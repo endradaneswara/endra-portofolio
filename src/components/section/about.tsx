@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { motion } from "framer-motion"
-import { AboutTitleAnimation } from "@/components/animation/about-title-animation"
+import { AboutTitleAnimation } from "@/components/animation/title-animation"
 import { Separator } from "../ui/separator"
 
 const profileDetails = [
@@ -13,36 +13,74 @@ const profileDetails = [
     { label: 'Main Skills', value: 'Software Development' },
 ]
 
+import { GridBackground } from "@/components/animation/grid-background"
+import MusicCard from "@/components/common/music-card"
+import { ScrambleText } from "@/components/animation/scramble-text"
+import { useIsMobile } from "@/components/hooks/use-mobile"
+
 export default function AboutSection() {
+    const isMobile = useIsMobile();
     return (
         <div className="relative w-full mt-8 lg:mt-16">
             <motion.section
                 id="about"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0 }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 className="w-full relative overflow-hidden bg-[#1a0b2e] dark:bg-[#0d1b3e] text-white border border-indigo-500/20 shadow-2xl"
-                style={{ clipPath: 'polygon(60px 0, calc(100% - 60px) 0, 100% 60px, 100% calc(100% - 300px), calc(100% - 90px) calc(100% - 300px), calc(100% - 90px) 100%, 60px 100%, 0 calc(100% - 90px), 0 60px)' }}
+                style={{
+                    clipPath: isMobile
+                        ? 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'
+                        : 'polygon(60px 0, calc(100% - 60px) 0, 100% 60px, 100% calc(100% - 300px), calc(100% - 90px) calc(100% - 300px), calc(100% - 90px) 100%, 60px 100%, 0 calc(100% - 90px), 0 60px)'
+                }}
             >
-                {/* Grid background */}
-                <div
-                    className="absolute inset-0 z-0 opacity-20"
-                    style={{
-                        backgroundImage:
-                            'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)',
-                        backgroundSize: '40px 40px',
-                    }}
-                />
+                {/* Interactive Grid Background */}
+                <GridBackground />
 
                 {/* Glow blobs */}
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/20 blur-3xl rounded-full pointer-events-none" />
                 <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/10 blur-3xl rounded-full pointer-events-none" />
 
+                {/* SOCIAL MEDIA — per-character ScrambleText stacked vertically (desktop only) */}
+                {!isMobile && (
+                <div className="absolute right-0 top-[100px] bottom-[300px] w-[90px] flex flex-col items-center justify-start pt-6 z-10 pointer-events-none">
+                    {['S','O','C','I','A','L'].map((char, i) => (
+                        <ScrambleText
+                            key={i}
+                            text={char}
+                            className="block text-2xl font-bold press-start-2p-regular text-white leading-snug"
+                            chars="uppercase"
+                            from="random"
+                            cursor=""
+                            delay={500 + i * 100}
+                            settleDuration={400}
+                            revealRate={40}
+                            settleRate={20}
+                        />
+                    ))}
+                    <span className="block h-3" />
+                    {['M','E','D','I','A'].map((char, i) => (
+                        <ScrambleText
+                            key={`m${i}`}
+                            text={char}
+                            className="block text-2xl font-bold press-start-2p-regular text-white leading-snug"
+                            chars="uppercase"
+                            from="random"
+                            cursor=""
+                            delay={1100 + i * 100}
+                            settleDuration={400}
+                            revealRate={40}
+                            settleRate={20}
+                        />
+                    ))}
+                </div>
+                )}
+
                 <div className="relative z-10 max-w-[90rem] mx-auto px-6 md:px-12 py-24">
                     {/* Top label */}
                     <div className="mb-10 w-full text-center">
-                        <span className="text-2xl font-extrabold press-start-2p-regular tracking-[0.25em] uppercase text-purple-300 px-5 py-2 drop-shadow-[0_0_20px_rgba(168,85,247,0.8)]">
+                        <span className="text-2xl font-bold press-start-2p-regular tracking-[0.3em] uppercase text-purple-300 px-5 py-2 drop-shadow-[0_0_20px_rgba(168,85,247,0.8)]">
                             About Me
                         </span>
                     </div>
@@ -94,12 +132,14 @@ export default function AboutSection() {
                         <div className="flex-[2] space-y-6">
                             <AboutTitleAnimation />
 
-                            <p className=" text-justify aldrich-regular text-slate-300 text-lg leading-relaxed max-w-xl">
+                            <p className=" text-justify aldrich-regular text-slate-300 text-lg leading-relaxed max-w-3xl">
                                 Hi, I'm <span className="font-bold text-white">Endra Daniswara</span> a Web Developer who enjoys building modern and interactive experiences for the web.
-                                Outside of coding, I’m someone who loves exploring new ideas, enjoying good music, and finding inspiration in everyday moments.
+                                Outside of coding, I'm someone who loves exploring new ideas, enjoying good music, and finding inspiration in everyday moments.
                                 Always curious, always learning, and just trying to create things that feel meaningful and fun.
                             </p>
-                            {/* Skills tags */}
+                            <div className="h-px max-w-3xl bg-gradient-to-r from-blue-500 via-indigo-400/60 to-transparent" />
+                            {/* Music Deck / Spotify Player */}
+                            <MusicCard />
                         </div>
                     </div>
                 </div>
@@ -108,9 +148,9 @@ export default function AboutSection() {
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
             </motion.section>
 
-            {/* Social Media Sidebar Cutout Area */}
+            {/* Social Media Sidebar Cutout Area — icons only */}
             <div className="bg-transparent absolute bottom-0 right-0 w-[90px] h-[300px] flex flex-col items-center justify-center gap-7 border-l border-t border-indigo-500/20 z-20">
-                <a href="https://instagram.com" target="_blank" rel="noreferrer"
+                <a href="https://www.instagram.com/endrdnswra?igsh=anowZ2F3YzI5cnVz" target="_blank" rel="noreferrer"
                     className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform bg-[#1a0b2e] dark:bg-[#0d1b3e]"
                     style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)' }}>
                     <img src="/instagram.svg" alt="Instagram" className="w-6 h-6 invert" />
@@ -120,7 +160,7 @@ export default function AboutSection() {
                     style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)' }}>
                     <img src="/linkedin.svg" alt="LinkedIn" className="w-6 h-6 invert" />
                 </a>
-                <a href="https://tiktok.com" target="_blank" rel="noreferrer"
+                <a href="www.tiktok.com/@dnswrxx" target="_blank" rel="noreferrer"
                     className="w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform bg-[#1a0b2e] dark:bg-[#0d1b3e]"
                     style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)' }}>
                     <img src="/tiktok.svg" alt="TikTok" className="w-6 h-6 invert" />
@@ -129,3 +169,4 @@ export default function AboutSection() {
         </div>
     );
 }
+

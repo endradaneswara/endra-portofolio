@@ -54,7 +54,7 @@ function TechBadge({ tech }: { tech: typeof techs[number] }) {
     <HoverCard openDelay={150} closeDelay={100}>
       <HoverCardTrigger asChild>
         <div className="flex-shrink-0 flex flex-col items-center gap-1.5 group cursor-pointer">
-          <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-2 transition-all duration-200 group-hover:border-white/30 group-hover:bg-white/15 group-hover:scale-110 shadow-lg">
+          <div className="w-12 h-12 rounded-xl bg-white/5 border border-blue-400 flex items-center justify-center p-2 transition-all duration-200 group-hover:border-white/30 group-hover:bg-white/15 group-hover:scale-110 shadow-lg">
             <img
               src={tech.icon}
               alt={tech.name}
@@ -91,9 +91,8 @@ export function TechMarquee() {
   return (
     <div className="relative overflow-hidden w-full max-w-xl">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 h-full w-12 z-10 bg-gradient-to-r from-[#1a0b2e] to-transparent dark:from-[#0d1b3e]" />
-      <div className="absolute right-0 top-0 h-full w-12 z-10 bg-gradient-to-l from-[#1a0b2e] to-transparent dark:from-[#0d1b3e]" />
-
+      <div className="absolute left-0 top-0 h-full w-12 z-10 bg-transparent" />
+      <div className="absolute right-0 top-0 h-full w-12 z-10 bg-transparent" />
       <div
         className="flex gap-6 py-2 w-max"
         style={{

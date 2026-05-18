@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import HeroSection from "@/components/section/hero"
 import AboutSection from "@/components/section/about"
+import ProjectSection from "@/components/section/project"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('hero')
@@ -112,6 +113,9 @@ export default function Home() {
 
       {/* About Me Section */}
       <AboutSection />
+
+      {/* Projects Section */}
+      <ProjectSection />
 
     </div>
   )
