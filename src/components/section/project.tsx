@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
 import { GridBackground } from "@/components/animation/grid-background"
-import { ScrambleText } from "@/components/animation/scramble-text"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
